@@ -1,0 +1,32 @@
+import javax.swing.JFrame;
+import java.awt.Dimension;
+import java.awt.Toolkit;
+
+
+//https://github.com/dhatim/fastexcel
+
+public class GUI {
+	public static void main(String[] args) {
+		init();
+	}
+
+	private static void init() {
+		createMainWindow("Grading App", 0.1);
+		
+	}
+
+	private static void createMainWindow(String name, double reduction) {
+		JFrame frame = new JFrame(name);
+
+		reduction = 2 - reduction;
+		Dimension screenDimensions = Toolkit.getDefaultToolkit().getScreenSize();
+		int height = (int) (screenDimensions.getHeight() / reduction);
+		int width = (int) (screenDimensions.getWidth() / reduction);
+
+		frame.setSize(width, height);
+		frame.setLocationRelativeTo(null);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frame.setVisible(true);
+	}
+
+}
